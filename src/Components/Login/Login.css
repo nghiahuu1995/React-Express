@@ -1,0 +1,77 @@
+/* Variables */
+:root {
+  --background-color: #f4f4f4;
+  --form-background-color: white;
+  --primary-color: #007bff;
+  --primary-color-hover: #0056b3;
+  --border-color: #ccc;
+  --text-color: white;
+}
+
+/* Apply box-sizing globally */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--background-color);
+}
+
+/* Form Container */
+.form-container {
+  background-color: var(--form-background-color);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  height: 400px;
+}
+
+/* Heading */
+.heading {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Label */
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Input */
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+/* Button */
+.button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.button:hover {
+  background-color: var(--primary-color-hover);
+}
