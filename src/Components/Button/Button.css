@@ -1,0 +1,27 @@
+.button {
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 4px 0px;
+    width: 100%;
+  }
+  
+  .edit-button {
+    background-color: #4caf50; /* Green */
+  }
+  
+  .edit-button:hover {
+    background-color: #45a049; /* Darker green */
+  }
+  
+  .delete-button {
+    background-color: #f44336; /* Red */
+  }
+  
+  .delete-button:hover {
+    background-color: #e53935; /* Darker red */
+  }
+  

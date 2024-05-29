@@ -181,13 +181,13 @@
     color: var(--text-color);
   }
   
-  tr:nth-child(even) {
+  /* tr:nth-child(even) {
     background-color: #f9f9f9;
-  }
+  } */
   
-  tr:hover {
+  /* tr:hover {
     background-color: #f1f1f1;
-  }
+  } */
   
   form {
     display: flex;
@@ -218,31 +218,19 @@
     font-size: 16px;
   }
   
-  /* Style for the Get Cars button */
-  #get-cars-btn {
-    display: block;
-    margin-bottom: 20px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 3px;
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  #get-cars-btn:hover {
-    background-color: var(--primary-color-hover);
-  }
+ .register-message {
+  color: green;
+  text-align: center;
+ }
   
   .highlight {
-    background-color: yellow !important; /* Highlight color */
+    background-color: yellow !important; 
   }
   
   /* Base style for all buttons */
   .btn {
     border: 1px solid black;
-    padding: 6px 12px; /* Further reduced padding */
+    padding: 6px 12px; 
     color: white;
     margin: 0 2px;
     cursor: pointer;
@@ -259,4 +247,23 @@
   .btn--edit--button {
     background-color: #0056b3;
   }
+  .car-selected {
+    background-color: #ffff70;
+  }
+
+  th.actions, td.actions {
+    display: flex;
+    /* justify-content: flex-end; */
+  }
+  .edit-button:hover {
+    background-color: #000000; 
+  }
+
+  
+
+  .delete-button:hover {
+    background-color: #ffffff; 
+  }
+
+
   

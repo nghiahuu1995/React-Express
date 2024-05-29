@@ -3,16 +3,18 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const { users, pool } = require('./db');
 const jwt = require('jsonwebtoken');
-dotenv.config();
-
+const bcrypt = require('bcrypt');
+dotenv.config({ path: '../.env' });
+const secretKey = process.env.JWT_SECRET;
 const app = express();
 app.use(express.json());
 app.use(cors());
-
+console.log('JWT Secret:', secretKey);
 app.post('/auth/register', async (req, res) => {
     const { username, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
     const sql = 'INSERT INTO users (username, password) VALUES (?, ?)';
-    users.query(sql, [username, password], (err, result) => {
+    users.query(sql, [username, hashedPassword], (err, result) => {
         if (err) {
             console.error('Error executing query', err);
             return res.status(500).send('Server error');
@@ -34,12 +36,12 @@ app.post('/auth/login', (req, res) => {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
         const user = results[0];
-
-        if (user.password !== password) {
+        const passwordMatch = await bcrypt.compare(password, user.password);
+        if (!passwordMatch) {
             console.log('Passwords do not match');
             return res.status(401).json({ error: 'Invalid credentials' });
         }
-        const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ id: user.id, username: user.username }, secretKey, { expiresIn: '1h' });
         res.status(200).json({ token });
     });
 });

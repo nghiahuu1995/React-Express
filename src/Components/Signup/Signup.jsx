@@ -11,6 +11,7 @@ export default function Signup() {
 
     const handleUsernameChange = (e) => setUsername(e.target.value);
     const handlePasswordChange = (e) => setPassword(e.target.value);
+    const [registerSuccessful,setRegisterSuccessful] = useState(false)
     const navigateLogin = () => {
         navigate('/login')
     }
@@ -25,7 +26,8 @@ export default function Signup() {
             const data = await response.json();
             if (response.ok) {
                 console.log('User registered successfully:', data);
-                navigate('/login'); // Redirect to login page after successful registration
+                setRegisterSuccessful(true)
+                // navigate('/login', { state: { message: 'Registered successfully. Please login.' } });
             } else {
                 console.log('Registration failed:', data);
             }
@@ -39,15 +41,19 @@ export default function Signup() {
             <div className="form-container">
                 <h1 className="heading">Sign Up</h1>
                 <form onSubmit={handleSubmit}>
+                    {registerSuccessful ? <h3 className='register-message'>Register Successfully</h3> : <>
                     <label htmlFor="username" className="label">Username</label>
                     <input type="text" id="username" onChange={handleUsernameChange} name="username" required className="input" />
                     <label htmlFor="password" className="label">Password</label>
                     <input type="password" id="password" onChange={handlePasswordChange} name="password" required className="input" />
                     <button type="submit" className="button">Create Account</button>
                     <button type="button" onClick={navigateLogin} className="button">Log in</button>
-                    <a href="/" className="circle-button">
-                        <FontAwesomeIcon icon={faLongArrowLeft} /> 
+                    </>
+                    }
+                    <a href="/login" className="circle-button">
+                        <FontAwesomeIcon icon={faLongArrowLeft} />
                     </a>
+                        
                 </form>
             </div>
         </div>

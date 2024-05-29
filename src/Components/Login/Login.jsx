@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import '../styles.css'
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleLeft, faArrowLeft, faArrowLeftLong, faLongArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleLeft, faArrowLeft, faArrowLeftLong, faHome, faLongArrowLeft } from '@fortawesome/free-solid-svg-icons';
 export default function Login() {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
@@ -55,7 +55,7 @@ export default function Login() {
                     <button type="submit" className="button">Login</button>
                     <button type="button" onClick={navigateSignup} className="button">Sign Up</button>
                     <a href="/" className="circle-button">
-                        <FontAwesomeIcon icon={faLongArrowLeft} /> 
+                        <FontAwesomeIcon icon={faHome} /> 
                     </a>
                 </form>
             </div>
